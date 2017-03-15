@@ -1,0 +1,40 @@
+name: xmradio 
+version: '0.1' 
+summary: Xiaomi radio
+description: |
+  This is xiaomi rado snap application
+
+grade: stable 
+confinement: devmode
+
+apps:
+  xmradio:
+    command: desktop-launch $SNAP/usr/bin/xmradio
+    plugs: [ network, opengl, x11, pulseaudio, unity7,home ]
+
+parts:
+  app:
+    plugin: cmake
+    configflags: [-DCMAKE_INSTALL_PREFIX=/usr]
+    source: https://github.com/timxx/xmradio.git
+    stage-packages:
+      - libmirclient9:amd64
+      - libatk-adaptor
+      - unity-gtk2-module:amd64
+      - libcanberra-gtk-module:amd64
+      - libcanberra-gtk-module
+      - vlc
+      - gstreamer1.0-plugins-ugly
+      - libgstreamer-plugins-bad1.0-0
+      - libglib2.0-bin
+      - fonts-wqy-zenhei
+      - fcitx-frontend-qt5
+    build-packages:
+      - libvlc-dev
+      - libsqlite3-dev
+      - libpeas-1.0-0-python3loader
+      - libpeas-1.0-0
+      - libpeas-1.0-0-python2loader
+      - libpeas-dev
+      - libnotify-dev
+    after: [ desktop-gtk2 ]

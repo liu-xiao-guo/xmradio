@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Exec=xmradio
+Name=XMRadio
+Icon=${SNAP}/meta/gui/icon.jpg
