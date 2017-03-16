@@ -20,7 +20,7 @@ parts:
     stage-packages:
       - libmirclient9:amd64
       - libatk-adaptor
-      - unity-gtk2-module:amd64
+      - unity-gtk3-module:amd64
       - libcanberra-gtk-module:amd64
       - libcanberra-gtk-module
       - vlc
@@ -28,7 +28,7 @@ parts:
       - libgstreamer-plugins-bad1.0-0
       - libglib2.0-bin
       - fonts-wqy-zenhei
-      - fcitx-frontend-qt5
+      - fcitx-frontend-gtk3
     build-packages:
       - libvlc-dev
       - libsqlite3-dev
@@ -37,4 +37,4 @@ parts:
       - libpeas-1.0-0-python2loader
       - libpeas-dev
       - libnotify-dev
-    after: [ desktop-gtk2 ]
+    after: [ desktop-gtk3 ]
