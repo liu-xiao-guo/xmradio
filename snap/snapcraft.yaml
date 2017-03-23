@@ -5,12 +5,18 @@ description: |
   This is xiaomi rado snap application
 
 grade: stable 
-confinement: devmode
+confinement: strict
 
 apps:
   xmradio:
     command: desktop-launch $SNAP/usr/bin/xmradio
     plugs: [ network, opengl, x11, pulseaudio, unity7,home ]
+
+slots:
+  dbus-XMRadio:
+    interface: dbus
+    bus: session
+    name: com.timxx.XMRadio
 
 parts:
   app:
@@ -21,8 +27,7 @@ parts:
       - libmirclient9:amd64
       - libatk-adaptor
       - unity-gtk3-module:amd64
-      - libcanberra-gtk-module:amd64
-      - libcanberra-gtk-module
+      - libcanberra-gtk3-module
       - vlc
       - gstreamer1.0-plugins-ugly
       - libgstreamer-plugins-bad1.0-0
